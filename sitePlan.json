@@ -1,0 +1,42 @@
+{
+  "businessName": "JOSETECH",
+  "industry": "Fashion and Creative Design",
+  "tone": "creative and approachable",
+  "tagline": "Where Style Meets Innovation",
+  "sections": [
+    {
+      "id": "hero",
+      "name": "Hero",
+      "copy": "JOSETECH - Crafting Excellence in Fashion & Creative Design. From bespoke fashion pieces to innovative creative designs, we bring your vision to life with Nigerian flair and international standards. Based in Kuje, serving Nigeria with passion and precision.",
+      "imagePrompt": "A vibrant, dynamic fashion studio scene in Nigeria with colorful African print fabrics draped elegantly, modern sewing machines, a bright creative workspace with design sketches on the wall, warm natural lighting streaming through windows, professional yet welcoming atmosphere, sharp focus, photorealistic, high-end fashion photography style",
+      "layout": "centered"
+    },
+    {
+      "id": "about",
+      "name": "About Us",
+      "copy": "JOSETECH is your premier destination for fashion excellence and creative design solutions in Kuje and beyond. We specialize in transforming ideas into stunning reality—whether it's custom clothing, fashion consulting, or innovative design projects. Our team combines traditional Nigerian craftsmanship with contemporary design trends to deliver pieces that tell your unique story. Every stitch, every detail, every creation is a testament to our commitment to quality and creativity.",
+      "imagePrompt": "A warm, inviting Nigerian fashion atelier interior with rolls of vibrant fabrics, a comfortable consultation area with modern furniture, African-inspired decor elements, mannequins displaying beautiful garments, natural wood accents, soft professional lighting, welcoming and professional atmosphere, photorealistic",
+      "layout": "split"
+    },
+    {
+      "id": "services",
+      "name": "Our Services",
+      "copy": "**Custom Fashion Design** - Bespoke clothing tailored to your exact specifications and measurements. From traditional Nigerian attire to contemporary fashion, we create pieces that fit perfectly and express your personality.\n\n**Creative Design Services** - Innovative design solutions for your brand, events, and personal projects. We bring fresh perspectives and artistic excellence to every project.\n\n**Fashion Consulting** - Expert advice on style, wardrobe planning, and fashion trends. Let us help you build a wardrobe that works for your lifestyle and goals.\n\n**Alterations & Repairs** - Professional alterations and repairs to keep your favorite garments looking their best. Quality workmanship guaranteed.",
+      "imagePrompt": "A professional flat lay composition showcasing fashion design services: fabric swatches in rich Nigerian prints, measuring tape, elegant sketches, sewing tools arranged artistically, a tablet showing design concepts, colorful thread spools, all arranged on a clean white or light wooden surface, bright even lighting, magazine-quality photography, photorealistic",
+      "layout": "grid"
+    },
+    {
+      "id": "contact",
+      "name": "Get In Touch",
+      "copy": "Ready to bring your fashion vision to life? Visit us at our studio or reach out today. We're here to answer your questions, discuss your project, and help you look your absolute best. Whether you need a complete wardrobe transformation or a single statement piece, JOSETECH is ready to deliver excellence.\n\nWalk-ins welcome during business hours, or call ahead to schedule a personal consultation. We look forward to creating something beautiful together.",
+      "imagePrompt": "A welcoming Nigerian business storefront or studio entrance, well-maintained building with clear signage, inviting doorway with plants, professional yet warm atmosphere, daylight photography, people-friendly environment, clean and organized exterior, photorealistic, sharp architectural photography",
+      "layout": "centered"
+    }
+  ],
+  "contact": {
+    "phone": "08061669336",
+    "email": "info@josetech.ng",
+    "address": "Inside Government Secondary School, Kuje, Kuje Area Council, Nigeria",
+    "whatsapp": "https://wa.me/2348061669336"
+  }
+}
