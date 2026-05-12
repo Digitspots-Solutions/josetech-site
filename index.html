@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOSETECH - Where Style Meets Innovation | Fashion & Creative Design</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500&display=swap">
+    <style>
+        :root {
+            --color-primary: #0f0e0e;
+            --color-accent: #49ff0f;
+            --color-bg: #F8F8F8;
+            --color-text: #0A0A0A;
+            --color-surface: #151414;
+            --color-secondary-accent: #f82a2c;
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-body: 'Outfit', sans-serif;
+            --border-radius: 6px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(248, 248, 248, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            border-bottom: 2px solid var(--color-primary);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--color-primary);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-text);
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 70px;
+            right: -100%;
+            width: 300px;
+            height: calc(100vh - 70px);
+            background: var(--color-bg);
+            box-shadow: -4px 0 12px rgba(0,0,0,0.15);
+            transition: right 0.3s ease;
+            z-index: 999;
+            padding: 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu ul li {
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-menu ul a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 0.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .mobile-menu ul a:hover {
+            color: var(--color-accent);
+        }
+
+        #hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.pexels.com/photos/6648497/pexels-photo-6648497.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+
+        #hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            width: 100%;
+            margin-left: 60%;
+            transform: translateX(-50%);
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3.5rem, 10vw, 9rem);
+            color: var(--color-accent);
+            line-height: 0.9;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content .tagline {
+            font-size: clamp(1.2rem, 2.5vw, 2rem);
+            color: white;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: white;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--color-accent);
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: var(--border-radius);
+            box-shadow: 6px 6px 0 var(--color-secondary-accent);
+            transition: all 0.2s ease;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0 var(--color-secondary-accent);
+        }
+
+        section {
+            padding: 80px 5%;
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        #about {
+            animation-delay: 0.1s;
+        }
+
+        #services {
+            animation-delay: 0.2s;
+        }
+
+        #contact {
+            animation-delay: 0.3s;
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            box-shadow: 12px 12px 0 var(--color-accent);
+        }
+
+        .about-content h2 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 6vw, 5rem);
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--color-text);
+            font-weight: 300;
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services-container h2 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 6vw, 5rem);
+            color: var(--color-primary);
+            margin-bottom: 3rem;
+            line-height: 1;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--color-surface);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 8px 8px 0 var(--color-accent);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0 var(--color-accent);
+        }
+
+        .service-card h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .service-card p {
+            color: #E0E0E0;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        #contact {
+            background: var(--color-surface);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-container h2 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 6vw, 5rem);
+            color: var(--color-accent);
+            margin-bottom: 2rem;
+            line-height: 1;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .contact-container p {
+            font-size: 1.1rem;
+            color: #E0E0E0;
+            line-height: 1.9;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-item {
+            background: var(--color-primary);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 6px 6px 0 var(--color-accent);
+        }
+
+        .contact-item h3 {
+            font-family: var(--font-display);
+            color: var(--color-accent);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-item a, .contact-item p {
+            color: #E0E0E0;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--color-accent);
+        }
+
+        .whatsapp-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: var(--border-radius);
+            box-shadow: 6px 6px 0 var(--color-secondary-accent);
+            transition: all 0.2s ease;
+            font-size: 1.1rem;
+        }
+
+        .whatsapp-button:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0 var(--color-secondary-accent);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        footer {
+            background: var(--color-primary);
+            color: #E0E0E0;
+            text-align: center;
+            padding: 2rem 5%;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            font-weight: 300;
+        }
+
+        @media (max-width: 1024px) {
+            section {
+                padding: 60px 5%;
+            }
+
+            .about-container {
+                gap: 3rem;
+            }
+
+            .hero-content {
+                margin-left: 50%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            section {
+                padding: 48px 5%;
+            }
+
+            .hero-content {
+                margin-left: 0;
+                transform: none;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: clamp(2.5rem, 12vw, 4rem);
+            }
+
+            .hero-content p {
+                max-width: 100%;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image img {
+                height: 400px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-details {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-float svg {
+                width: 28px;
+                height: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">JOSETECH</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1>JOSETECH</h1>
+            <div class="tagline">Where Style Meets Innovation</div>
+            <p>JOSETECH - Crafting Excellence in Fashion & Creative Design. From bespoke fashion pieces to innovative creative designs, we bring your vision to life with Nigerian flair and international standards. Based in Kuje, serving Nigeria with passion and precision.</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="https://images.pexels.com/photos/9850083/pexels-photo-9850083.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="JOSETECH Fashion Studio">
+            </div>
+            <div class="about-content">
+                <h2>About Us</h2>
+                <p>JOSETECH is your premier destination for fashion excellence and creative design solutions in Kuje and beyond. We specialize in transforming ideas into stunning reality—whether it's custom clothing, fashion consulting, or innovative design projects. Our team combines traditional Nigerian craftsmanship with contemporary design trends to deliver pieces that tell your unique story. Every stitch, every detail, every creation is a testament to our commitment to quality and creativity.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="services-container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Custom Fashion Design</h3>
+                    <p>Bespoke clothing tailored to your exact specifications and measurements. From traditional Nigerian attire to contemporary fashion, we create pieces that fit perfectly and express your personality.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Creative Design Services</h3>
+                    <p>Innovative design solutions for your brand, events, and personal projects. We bring fresh perspectives and artistic excellence to every project.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Fashion Consulting</h3>
+                    <p>Expert advice on style, wardrobe planning, and fashion trends. Let us help you build a wardrobe that works for your lifestyle and goals.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Alterations & Repairs</h3>
+                    <p>Professional alterations and repairs to keep your favorite garments looking their best. Quality workmanship guaranteed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-container">
+            <h2>Get In Touch</h2>
+            <p>Ready to bring your fashion vision to life? Visit us at our studio or reach out today. We're here to answer your questions, discuss your project, and help you look your absolute best. Whether you need a complete wardrobe transformation or a single statement piece, JOSETECH is ready to deliver excellence.</p>
+            <p>Walk-ins welcome during business hours, or call ahead to schedule a personal consultation. We look forward to creating something beautiful together.</p>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <h3>Call Us</h3>
+                    <a href="tel:08061669336">08061669336</a>
+                </div>
+                <div class="contact-item">
+                    <h3>Email Us</h3>
+                    <a href="mailto:info@josetech.ng">info@josetech.ng</a>
+                </div>
+                <div class="contact-item">
+                    <h3>Visit Us</h3>
+                    <p>Inside Government Secondary School, Kuje, Kuje Area Council, Nigeria</p>
+                </div>
+            </div>
+            <a href="https://wa.me/2348061669336" class="whatsapp-button" target="_blank">Chat on WhatsApp</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 JOSETECH. All rights reserved.</p>
+    </footer>
+
+    <a href="https://wa.me/2348061669336" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.155 1.382 1.382-5.133-0.313-0.525c-1.337-2.229-2.037-4.757-2.037-7.362 0-7.51 6.11-13.6 13.6-13.6s13.6 6.09 13.6 13.6-6.09 13.6-13.6 13.6zM21.305 18.305c-0.217-0.108-1.282-0.632-1.48-0.705s-0.343-0.108-0.487 0.108c-0.145 0.217-0.561 0.705-0.687 0.85s-0.253 0.163-0.47 0.054c-0.217-0.108-0.916-0.338-1.745-1.076-0.645-0.575-1.081-1.286-1.208-1.503s-0.013-0.334 0.095-0.442c0.098-0.097 0.217-0.253 0.326-0.38s0.145-0.217 0.217-0.362c0.072-0.145 0.036-0.271-0.018-0.38s-0.487-1.175-0.668-1.608c-0.176-0.421-0.354-0.364-0.487-0.371-0.126-0.006-0.271-0.007-0.415-0.007s-0.379 0.054-0.578 0.271c-0.199 0.217-0.759 0.741-0.759 1.807s0.777 2.098 0.885 2.242c0.108 0.145 1.527 2.33 3.701 3.267 0.517 0.223 0.921 0.356 1.235 0.456 0.52 0.166 0.993 0.143 1.367 0.087 0.417-0.062 1.282-0.524 1.463-1.030s0.181-0.94 0.127-1.030c-0.054-0.090-0.199-0.145-0.415-0.253z"/>
+        </svg>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
